@@ -1,37 +1,36 @@
 # chat-space DB設計
 
-## user_table
+## users_table
 |Column|Type|Options|
 |------|----|-------|
 |id----|integer|----|
 |email|string|------|
 |password|string|---|
-|user_name|text|----|
+|name|text|null: false, index: true|
 
-## group_table
+## groups_table
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|---|
+|name|text|---|
 ### Association
-- belongs_to :user
 
-## massage_table
+## massages_table
 |Column|Type|Options|
 |------|----|-------|
 |text--|text|-------|
 |date--|datetime|---|
 |image|string|------|
-|user_id|integer|---|
-|group_id|integer|--|
+|users_id|references|null: false, foreign_key: true|
+|groups_id|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :group
-- belongs_to :user
+- belongs_to :groups
+- belongs_to :users
 
-## user_group_table(中間テーブル)
+## users_groups_table(中間テーブル)
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|users_id|references|null: false, foreign_key: true|
+|groups_id|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :group
-- belongs_to :user
+- belongs_to :groupss
+- belongs_to :users
