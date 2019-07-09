@@ -10,6 +10,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|---|
+### Association
+- belongs_to :user
 
 ## massage_table
 |Column|Type|Options|
@@ -18,14 +20,15 @@
 |date--|datetime|---|
 |user_id|integer|---|
 |group_id|integer|---|
+### Association
+- belongs_to :group
+- belongs_to :user
 
-## membersテーブル(中間テーブル)
-
+## user_group_table(中間テーブル)
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
-
 ### Association
 - belongs_to :group
 - belongs_to :user
