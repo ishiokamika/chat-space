@@ -1,11 +1,4 @@
-# chat-space
-<!-- ・ユーザー管理機能
-   user_table
-・チャットグループ管理機能
-   group_table
-・チャットメッセージの保存機能
-  massage_table -->
-
+# chat-space DB設計
 
 ## user_table
 |Column|Type|Options|
