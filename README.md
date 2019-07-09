@@ -14,6 +14,7 @@
 |name|text|---|
 ### Association
 
+
 ## massages_table
 |Column|Type|Options|
 |------|----|-------|
