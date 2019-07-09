@@ -4,7 +4,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |id----|integer|----|
-|email|string|--|
+|email|string|------|
+|password|string|---|
+|user_name|text|----|
 
 ## group_table
 |Column|Type|Options|
@@ -18,8 +20,9 @@
 |------|----|-------|
 |text--|text|-------|
 |date--|datetime|---|
+|image|string|------|
 |user_id|integer|---|
-|group_id|integer|---|
+|group_id|integer|--|
 ### Association
 - belongs_to :group
 - belongs_to :user
