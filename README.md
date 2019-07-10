@@ -6,9 +6,9 @@
 |id----|integer|----|
 |email|string|------|
 |password|string|---|
-|name|text|null: false, index: true|
+|name|string|null: false, index: true|
 ### Association
-- has_many :message
+- has_many :messages
 - has_many :users_groups_table
 - has_many :groups, through: :user_groups
 
@@ -17,7 +17,7 @@
 |------|----|-------|
 |name|string|null: false|
 ### Association
-- has_many :message
+- has_many :messages
 - has_many :users_groups_table
 - has_many :users, through: :users_groups
 
