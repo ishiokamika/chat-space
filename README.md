@@ -15,30 +15,27 @@
 ## groups_table
 |Column|Type|Options|
 |------|----|-------|
-|name|text|---|
+|name|string|null: false|
 ### Association
 - has_many :message
 - has_many :users_groups_table
-- has_many :users, through: :user_groups
+- has_many :users, through: :users_groups
 
 ## massages_table
 |Column|Type|Options|
 |------|----|-------|
-|text--|text|-------|
-|date--|datetime|---|
 |image|string|------|
-|users_id|references|null: false, foreign_key: true|
-|groups_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :groups
-- belongs_to :users
+- belongs_to :group
+- belongs_to :user
 
 ## users_groups_table(中間テーブル)
 |Column|Type|Options|
 |------|----|-------|
-|users_id|references|null: false, foreign_key: true|
-|groups_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 ### Association
-- has_many :message
-- belongs_to :groups
-- belongs_to :users
+- belongs_to :group
+- belongs_to :user
