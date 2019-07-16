@@ -1,2 +1,21 @@
-%p hello world
-.test
+.flash-box
+  .notice
+    グループを作成しました。
+.side
+  .side__header
+    %p.user test-user
+    %ul.user_menu
+      %li.edit_user< 
+        %a{ :href => '/groups/new'}
+          <i class="fa fa-edit"></i>
+      %li.new_group
+        %a{ :href => '/users/edit'}
+          <i class="fa fa-cog"></i>
+  .side__groups
+    %a{ :href => '/groups/messages'}
+      .group
+        %p.group_name test
+        %p.group_massage まだメッセージがありません
+.main-contents
+  .main-header
+  .massages

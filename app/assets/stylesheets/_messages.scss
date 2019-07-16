@@ -1,0 +1,63 @@
+.flash-box{
+  color: white;
+  font-size: 1rem;
+  font-weight: lighter;
+  text-align: center;
+  width: 100vw;
+  .notice{
+    background-color: #38AEF0;
+  }
+}
+
+.side{
+  width: 300px;
+  color: white;
+  float: left;
+  &__header{
+    background-color: #253141;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
+    font-weight: bold;
+    p.user{
+      font-size: 16px;
+      color: #FFFFFF;
+    }
+    ul{
+      list-style: none;
+    }
+    ul.user_menu{
+      display: flex;
+      li.edit_user{
+        margin-left: 0.3rem;
+        a{
+          color: white;
+          text-decoration: none;
+        }
+      }
+      li.new_group{
+        margin-left: 0.3rem;
+        a{
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  &__groups{
+    height: calc(100vh - 100px);
+    background-color: #2f3e51;
+    padding: 20px 20px 0;
+    overflow: scloll;
+      a{
+        color: white;
+      }
+      .group{
+        margin-bottom: 40px;
+        
+      }
+  }
+}
+
