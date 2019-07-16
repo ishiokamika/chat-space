@@ -53,10 +53,17 @@
     overflow: scloll;
       a{
         color: white;
+        text-decoration: none;
       }
       .group{
         margin-bottom: 40px;
-        
+        p.group_name{
+          font-size: 15px;
+          margin-bottom: 5px;
+        }
+        p.group_massage{
+          font-size: 11px;
+        }
       }
   }
 }
