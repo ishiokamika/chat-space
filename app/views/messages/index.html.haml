@@ -1,6 +1,7 @@
 .flash-box
   .notice
     グループを作成しました。
+
 .side
   .side__header
     %p.user test-user
@@ -15,7 +16,28 @@
     %a{ :href => '/groups/messages'}
       .group
         %p.group_name test
-        %p.group_massage まだメッセージがありません
-.main-contents
-  .main-header
-  .massages
+        %p.group_message まだメッセージがありません
+
+.main
+  .main__header
+    .current-group
+      %h2.current-group__name test
+      %ul.member-list Menber：
+    %a{ :href => '/groups/edit'}
+      .edit-btn Edit
+  .main__messages
+    .info
+      .info_upper
+        %p.info_user test-user
+        %p.info_date 2019/07/19(Sun)17：48：29
+      %p.message_text こんにちは
+  .main__form
+    %form#new_message.new-message{"accept-charset" => "UTF-8", :action => "/groups/1873/messages", :enctype => "multipart/form-data", :method => "post"}
+      %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+      %input{:name => "authenticity_token", :type => "hidden", :value => "EP0RzzZ3yBYy8+J5tzbWVaSzFq4zbUJ9s1KXEpd+EKv1ShgBukYo+DcQ1ng8nR4o7q7Z+N55Wvtd6fcTuBf3Kw=="}/
+      .input-box
+        %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
+        %label.image-label{:for => "message_image"}
+          %i.fa.fa-image
+          %input#message_image.image-label__input{:name => "message[image]", :type => "file"}/
+      %input.new-message__submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
