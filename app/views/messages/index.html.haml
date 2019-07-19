@@ -7,13 +7,13 @@
     %p.user test-user
     %ul.user_menu
       %li.edit_user< 
-        %a{ :href => '/groups/new'}
-          <i class="fa fa-edit"></i>
+        =link_to('/groups/new') do
+          =fa_icon 'edit'
       %li.new_group
-        %a{ :href => '/users/edit'}
-          <i class="fa fa-cog"></i>
+        =link_to('/users/edit') do
+          =fa_icon 'cog'
   .side__groups
-    %a{ :href => '/groups/messages'}
+    =link_to('/groups/messages') do
       .group
         %p.group_name test
         %p.group_message まだメッセージがありません
@@ -23,7 +23,7 @@
     .current-group
       %h2.current-group__name test
       %ul.member-list Menber：
-    %a{ :href => '/groups/edit'}
+    =link_to('/groups/edit') do
       .edit-btn Edit
   .main__messages
     .info
@@ -38,6 +38,6 @@
       .input-box
         %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
         %label.image-label{:for => "message_image"}
-          %i.fa.fa-image
+          =fa_icon 'image'
           %input#message_image.image-label__input{:name => "message[image]", :type => "file"}/
       %input.new-message__submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
