@@ -1,0 +1,41 @@
+.flash-box
+  .notice
+    グループを作成しました。
+
+.side
+  .side__header
+    %p.user test-user
+    %ul.user_menu
+      %li.edit_user< 
+        =link_to('#') do
+          =fa_icon 'edit'
+      %li.new_group
+        =link_to('#') do
+          =fa_icon 'cog'
+  .side__groups
+    =link_to('#') do
+      .group
+        %p.group_name test
+        %p.group_message まだメッセージがありません
+
+.main
+  .main__header
+    .current-group
+      %h2.current-group__name test
+      %ul.member-list Menber：
+    =link_to('#') do
+      .edit-btn Edit
+  .main__messages
+    .info
+      .info_upper
+        %p.info_user test-user
+        %p.info_date 2019/07/19(Sun)17：48：29
+      %p.message_text こんにちは
+  .main__form
+    .new_message
+      .input-box
+        %input#message_content.input-box__text{name: "message[content]", placeholder: "type a message", type: "text"}/
+        %label.image-label{for: "message_image"}
+          =fa_icon 'image'
+        %input#message_image.image-label__input{name: "message[image]", type: "file"}/
+      %input.submit-btn{data: { disable_with: "Send" }, name: "commit", type: "submit", value: "Send"}/
