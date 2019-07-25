@@ -1,5 +1,15 @@
 class UsersController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    redirect_to :root, alert: 'User not found'
+  end
 
+  def index
+  end
+
+  def new
+    @users = User.all
+  end
+  
   def edit
   end
 
