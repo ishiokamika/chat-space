@@ -117,18 +117,18 @@
       .info_upper{
         display: flex;
         margin-bottom: 10px;
-        p.info_user{
+        .info_user{
           color: #434a54;
           font-size: 16px;
           font-weight: bold;
         }
-        p.info_date{
+        .info_date{
           color: #999999;
           font-size: 12px;
           margin-left: 10px;
         }
       }
-      p.message_text{
+      .message_text{
         color: #434a54;
         font-size: 14px;
         margin-bottom: 10px;
@@ -147,24 +147,23 @@
         font-weight: inherit;
       }
       .input-box{
-        position: relative;
         width: 100%;
-        &__text{
-          height: 50px;
-          width: 100%;
-          padding: 0 40px 0 10px;
-          color: #434a54;
-          border-style: none;
-        }
+        padding: 0 40px 0 10px;
+      }
+      .input-text{
+        height: 50px;
+        color: #434a54;
+        border-style: none;
+        position: relative;
         .image-label{
           font-size: 1.3rem;
-          position: absolute;
           top: 10px;
           right: 10px;
           cursor: pointer;
-          &__input{
-            display: none;
-          }
+          position: absolute;
+        }
+        .image-input{
+          display: none;
         }
       }
       .submit-btn{
