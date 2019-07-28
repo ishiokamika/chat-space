@@ -54,23 +54,20 @@
     background-color: #2f3e51;
     padding: 20px 20px 0;
     overflow: scloll;
-    a{
+    .group{
+      margin-bottom: 40px;
       color: white;
       text-decoration: none;
-      .group{
-        margin-bottom: 40px;
-        p.group_name{
-          font-size: 15px;
-          margin-bottom: 5px;
+      p.group_name{
+        font-size: 15px;
+        margin-bottom: 5px;
         }
-        p.group_message{
+      p.group_message{
           font-size: 11px;
-        }
       }
-    }
+    } 
   }
 }
-
 .main{
   width: calc(100vw - 300px);
   float:left;
@@ -88,7 +85,7 @@
         font-size :100%;
         font-weight: normal;
       }
-      ul.member-list{
+      .member-list{
         display: flex;
         margin-top: 15px;
         font-size: 12px;

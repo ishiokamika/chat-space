@@ -1,29 +1,35 @@
 .flash-box
   .notice
-    グループを作成しました。
 
 .side
   .side__header
-    %p.user test-user
+    %p.user 
+      = current_user.name
     %ul.user_menu
       %li.edit_user< 
-        =link_to('#') do
+        = link_to new_group_path do
           =fa_icon 'edit'
       %li.new_group
-        =link_to('#') do
+        = link_to edit_user_path(current_user) do
           =fa_icon 'cog'
   .side__groups
-    =link_to('#') do
+    - current_user.groups.each do |group|
       .group
-        %p.group_name test
-        %p.group_message まだメッセージがありません
+        %p.group_name 
+          = group.name
+        %p.group_message 
+          = group.show_last_message
+        
 
 .main
   .main__header
     .current-group
-      %h2.current-group__name test
-      %ul.member-list Menber：
-    =link_to('#') do
+      %h2.current-group__name 
+        = @group.name
+      .member-list Menber： 
+      - @group.group_users.each do |group_user|
+        = group_user.user.name
+    = link_to edit_user_path(current_user) do
       .edit-btn Edit
   .main__messages
     .info
