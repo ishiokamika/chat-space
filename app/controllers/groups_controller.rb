@@ -6,7 +6,6 @@ class GroupsController < ApplicationController
   end
   
   def index
-    @group = Group.find(params[:group_id])
     @groups = current_user.groups
   end  
 

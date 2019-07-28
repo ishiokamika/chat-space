@@ -24,11 +24,13 @@
 .main
   .main__header
     .current-group
-      %h2.current-group__name 
+      %h1.current-group__name 
         = @group.name
-      .member-list Menber： 
-      - @group.group_users.each do |group_user|
-        = group_user.user.name
+      .group-set
+        .group-member Member : 
+        .member-list  
+          - @members.each do |member|
+            = member.name
     = link_to edit_user_path(current_user) do
       .edit-btn Edit
   .main__messages
