@@ -34,8 +34,7 @@
     = link_to edit_user_path(current_user) do
       .edit-btn Edit
   .main__messages
-    .info
-      = render @messages
+    = render @messages
   .main__form
     = form_for [@group, @message] do |f|
       = f.text_field :content, class: 'input-box', placeholder: 'type a message' 
