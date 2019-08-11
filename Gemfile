@@ -41,7 +41,7 @@ group :development, :test do
 
   gem 'rspec-rails', '~> 3.5'
   gem 'rails-controller-testing'
-  gem 'factory_bot_rails'
+  # gem 'factory_bot_rails' , '~> 5.0.2'
   gem 'faker'
 end
 
@@ -70,3 +70,5 @@ gem 'mini_magick'
 gem 'pry-rails'
 
 gem 'jquery-ui-rails'
+
+gem 'jquery-turbolinks'
