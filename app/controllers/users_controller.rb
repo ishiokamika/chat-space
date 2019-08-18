@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
     @users = User.order('id ASC').limit(20)
   end
 
