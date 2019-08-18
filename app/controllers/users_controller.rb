@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.order('id ASC').limit(20)
   end
 
   def new
@@ -12,6 +12,14 @@ class UsersController < ApplicationController
   end
   
   def edit
+  end
+      
+  def search
+    @users = User.where('name LIKE(?) and id != ?', "%#{params[:keyword]}%" ,current_user)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def update
