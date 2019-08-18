@@ -31,7 +31,7 @@
         .member-list  
           - @members.each do |member|
             = member.name
-    = link_to edit_user_path(current_user) do
+    = link_to edit_group_path(@group) do
       .edit-btn Edit
   .main__messages
     = render @messages
