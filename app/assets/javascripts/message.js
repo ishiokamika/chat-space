@@ -1,8 +1,7 @@
 $(document).on('turbolinks:load', function(){
   function buildHTML(message) {
-    var content = message.content ? `${ message.content }` : "";
-    var img = message.image ? `<img src= ${ message.image }>` : "";
-    var html = `<div class="info" data-id="${message.id}">
+    image = (message.image) ? `<img class= "lower-message__image" src=${message.image} >` : "";
+    var html = `<div class="info" data-message-id="${message.id}">
                   <div class="info_upper">
                     <p class="info_user">
                       ${message.user_name}
@@ -13,13 +12,14 @@ $(document).on('turbolinks:load', function(){
                   </div>
                   <div class="message_text">
                     <div>
-                    ${content}
+                    ${message.content}
                     </div>
-                    ${img}
+                    ${image}
                   </div>
                 </div>`
   return html;
   }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var message = new FormData(this);
@@ -32,23 +32,44 @@ $(document).on('turbolinks:load', function(){
       processData: false,
       contentType: false
     })
-    .done(function(data){
-      var html = buildHTML(data);
+
+    .done(function(message){
+      var html = buildHTML(message);
       $('.main__messages').append(html);
       $("form")[0].reset('');
-      function scrollBottom(){
-        var target = $('.main__messages').last();
-        var position = target.offset().top + $('.main__messages').scrollTop();
-        $('.main__messages').animate({
-          scrollTop: position
-        }, 300, 'swing');
-      }
+      $('.main__messages').animate({scrollTop: $('.main__messages')[0].scrollHeight}, 'fast');
     })
-    .fail(function(data){
+
+    .fail(function(message){
       alert('エラーが発生したためメッセージは送信できませんでした。');
     })
-    .always(function(data){
-      $('.submit-btn').prop('disabled', false);　
+
+    .always(function(message){
+      $('.submit-btn').prop('disabled', false);
     })
-  })
+  }) 
+
+  var reloadMessages = function () {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      var last_message_id = $('.info:last').data("message-id"); 
+      $.ajax({
+        url: "api/messages",
+        type: 'get',
+        dataType: 'json',
+        data: {last_id: last_message_id}
+      })
+      .done(function (messages) {
+        var insertHTML = '';
+        messages.forEach(function (message) {
+          insertHTML = buildHTML(message);
+          $('.main__messages').append(insertHTML);
+        })
+        $('.main__messages').animate({scrollTop: $('.main__messages')[0].scrollHeight}, 'fast');
+      })
+      .fail(function () {
+        alert('自動更新に失敗しました');
+      });
+    }
+  };
+  setInterval(reloadMessages, 5000);
 });
