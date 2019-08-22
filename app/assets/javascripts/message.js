@@ -49,10 +49,6 @@ $(document).on('turbolinks:load', function(){
       $('.submit-btn').prop('disabled', false);
     })
   })
-});
-
-$ (function () {
-
   function buildHTML(message) {
 
     image = (message.image) ? `<img class= "lower-message__image" src=${message.image} >` : "";
@@ -97,5 +93,5 @@ $ (function () {
       });
     }
   };
-    setInterval(reloadMessages, 5000);
+  setInterval(reloadMessages, 5000);
 });
