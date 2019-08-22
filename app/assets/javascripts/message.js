@@ -1,8 +1,7 @@
 $(document).on('turbolinks:load', function(){
   function buildHTML(message) {
-    var content = message.content ? `${ message.content }` : "";
-    var img = message.image ? `<img src= ${ message.image }>` : "";
-    var html = `<div class="info" data-id="${message.id}">
+    image = (message.image) ? `<img class= "lower-message__image" src=${message.image} >` : "";
+    var html = `<div class="info" data-message-id="${message.id}">
                   <div class="info_upper">
                     <p class="info_user">
                       ${message.user_name}
@@ -15,7 +14,7 @@ $(document).on('turbolinks:load', function(){
                     <div>
                     ${message.content}
                     </div>
-                    ${img}
+                    ${image}
                   </div>
                 </div>`
   return html;
@@ -48,28 +47,7 @@ $(document).on('turbolinks:load', function(){
     .always(function(message){
       $('.submit-btn').prop('disabled', false);
     })
-  })
-  function buildHTML(message) {
-
-    image = (message.image) ? `<img class= "lower-message__image" src=${message.image} >` : "";
-    var html = `<div class="info" data-message-id="${message.id}">
-                  <div class="info_upper">
-                    <p class="info_user">
-                      ${message.user_name}
-                    </p>
-                    <p class="info_date">
-                      ${message.date}
-                    </p>
-                  </div>
-                  <div class="message_text">
-                    <div>
-                    ${message.content}
-                    </div>
-                    ${image}
-                  </div>
-                </div>`
-  return html;
-  } 
+  }) 
 
   var reloadMessages = function () {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
