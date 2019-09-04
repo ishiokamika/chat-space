@@ -72,3 +72,7 @@ gem 'pry-rails'
 gem 'jquery-ui-rails'
 
 gem 'jquery-turbolinks'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
