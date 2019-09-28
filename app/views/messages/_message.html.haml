@@ -3,9 +3,11 @@
     .info_user
       = message.user.name
     .info_date
-      = message.created_at.strftime("%Y/%m/%d %H:%M")
+      = message.simple_time(@test[:created_at] )
   .message_text
     - if message.content.present?
       %p.lower-message__content
         = message.content
     = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+
+    = simple_time(@test[:created_at] )
