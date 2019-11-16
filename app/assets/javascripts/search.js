@@ -19,6 +19,7 @@ $(document).on('turbolinks:load', function(){
                   <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
                 </div>`
     member_list.append(html);
+    return html;
   }
 
   function appendErrMsgToHTML(msg) {
